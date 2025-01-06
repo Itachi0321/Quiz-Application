@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IQIZU</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="img/qizu-favicon-.png" type="image/x-icon">
+</head>
+<style>
+
+</style>
+<body>
+    
+<main class="main">
+     <header>
+        <div class="img-container">
+        <a class="logo" href="/"><img src="img/qizu-high-resolutio.png" alt="logo"></a>
+        </div>  
+        <nav>
+            <ul class="nav__links">
+                <li><a href="index.html" id="home">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+                <li><a href="#faq-section" class="nav-link">FAQ's</a></li>
+            </ul>
+           
+
+        </nav>
+        <div class="btn">
+        <button type="button" id="login-btn">Login</button>
+        <button type="button" id="signup-btn" >Sign Up</button>
+        </div>
+    </header>
+    
+   
+        <section class="main-con">
+            <div class="first-sec">
+                <div class="col1">
+                    <h1>IQIZU</h1>
+                    <p class="text">"Welcome to IQIZU, your go-to for fun, exciting quizzes! Test your knowledge, discover new facts, and enjoy a personalized quiz experience that will keep you engaged. Dive in and see what you really know!</p>
+                    <a href="index.html#cards-sec" class="start-btn " id="start-btn"> START QUIZ</a>
+                </div>
+                <div class="col2">
+                <video width="550px" height="400px" autoplay muted loop>
+                    <source src="img/Features_Quiz_small.mp4">
+                </video>
+                </div>
+            </div>
+            
+        </section>
+
+       
+
+        
+        <section class="second-sec">
+            <div class="sec-main-con">
+                <h2 class="headline">Discover the World of Quizzes</h2>
+                <p class="text">At IQIZU, we turn learning into an exciting adventure! 
+                    Explore a world of quizzes across diverse topics—whether it's general knowledge, science, or pop culture, there's something to spark everyone's curiosity. Get ready to learn, play, and discover!</p>
+            </div>
+        </section>
+       
+
+        <section class="card-head">
+            <div class="heading">
+                <h2>Explore the Quizverse</h2>
+                <p>Your ultimate destination for trivia fun and challenges! Dive in, explore new worlds, and prove you're the master of knowledge.</p>
+            </div>
+        </section>
+
+        <section id="cards-sec">
+            <div class="slide">
+                <div class="item" style="background-image: url(img/black-hole-151607_1920.png);">
+                    <div class="content">
+                        <div class="name">Ultimate General Knowledge Quiz</div>
+                        <div class="des">Challenge yourself with a mix of questions across history, science, geography, and more! Put your general knowledge to the test and see how much you really know about the world.</div>
+                        <button type="button" class="quiz-btn" data-quiz="gk">Play Now</button>
+                    </div>
+                </div>
+                <div class="item" style="background-image: url(img/1323165.png) ; opacity: 1;">
+                    <div class="content">
+                        <div class="name">One Piece Grand Line Trivia</div>
+                        <div class="des">Join the Straw Hat crew and take the One Piece quiz! <br> Challenge yourself with questions about the world of pirates, devil fruits, and epic adventures. Are you ready to become the Pirate King of One Piece knowledge?
+                        </div>
+                        <button type="button" class="quiz-btn" data-quiz="onepiece">Play Now</button>
+                    </div>
+                </div>
+
+                <div class="item" style="background-image: url(img/ben.jpg);">
+                    <div class="content">
+                        <div class="name">Ben 10 Universe Challenge </div>
+                        <div class="des">Dive into the action-packed world of Ben 10! Test your knowledge about Ben, his powerful Omnitrix, and his alien transformations. Only true fans can score 100%!</div>
+                        <button type="button" class="quiz-btn" data-quiz="ben10">Play Now</button>
+                    </div>
+                </div>
+               
+                
+                
+                <div class="item" style="background-image: url(img/wallpaperflare.com_wallpaper.jpg);">
+                    <div class="content">
+                        <div class="name">HTML & CSS Essentials Quiz</div>
+                        <div class="des">Test your foundational knowledge of HTML and CSS! From basic tags to styling techniques, see how well you know the building blocks of web development.</div>
+                        <button type="button" class="quiz-btn" data-quiz="htmlcss">Play Now</button>
+                    </div>
+                </div>
+                
+                <div class="item" style="background-image: url(img/pexels-lara-jameson-8828346.jpg);">
+                    <div class="content">
+                        <div class="name">World Flags Quiz</div>
+                        <div class="des">Think you know the flags of the world? Test your knowledge of countries and their flags in this colorful and challenging quiz. Perfect for geography lovers and global citizens alike!</div>
+                        <button type="button" class="quiz-btn" data-quiz="worldflags">Play Now</button>
+                    </div>
+                </div>
+                
+            </div>
+    
+            <div class="button">
+                <button class="prev"><i class="bi bi-arrow-left-circle-fill"></i></button>
+                <button class="next"><i class="bi bi-arrow-right-circle-fill"></i></button>
+            </div>
+        </div>
+
+        </section>
+
+        <section id="faq-section">
+            <h1>Frequently Asked Questions</h1>
+    
+            <div class="faq-container">
+                <div class="faq-item">
+                    <h2 class="faq-question">What is IQIZU? <i class="bi bi-chevron-down"></i></h2>
+                    <div class="faq-answer">
+                        <p>IQIZU is an interactive platform that allows users to take quizzes, test their knowledge, and have fun while learning.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <h2 class="faq-question">How do I participate in a quiz? <i class="bi bi-chevron-down"></i></h2>
+                    <div class="faq-answer">
+                        <p>Simply navigate to the <a href="#cards-sec"><u>quiz section</u></a> , select a quiz, and start answering the questions!</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <h2 class="faq-question">Do I need to create an account to take quizzes?<i class="bi bi-chevron-down"></i></h2>
+                    <div class="faq-answer">
+                        <p> No account is needed to participate, but creating one allows you to track your progress and achievements.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item">
+                    <h2 class="faq-question">How can I sign up for IQIZU? <i class="bi bi-chevron-down"></i></h2>
+                    <div class="faq-answer">
+                        <p>You can sign up by clicking on the "<a href="signup.html"><u>Sign Up</u></a>" button on the top right of the home page, then filling in your details.</p>
+                    </div>
+                </div>
+    
+                <div class="faq-item">
+                    <h2 class="faq-question">How can I suggest a new quiz topic?<i class="bi bi-chevron-down"></i></h2>
+                    <div class="faq-answer">
+                        <p>You can reach out to us through the <a href="contact.html"><u>contact page</u></a> to suggest topics you’d like to see..</p>
+                    </div>
+                </div>
+                
+                <div class="faq-item">
+                    <h2 class="faq-question">How can I contact IQIZU support? <i class="bi bi-chevron-down"></i></h2>
+                    <div class="faq-answer">
+                        <p>You can reach out to IQIZU support through the <a href="contact.html"><u>contact page</u></a>, or send an email to <a href="support@iquizu.com"><u>support@iqizu.com</u></a>.</p>
+                    </div>
+                </div>
+
+
+            </div>
+
+        </section>
+    
+
+        
+    
+
+    <footer>
+        <div class="footer-con">
+        <div class="footer-about">
+            <h3>
+                About IQIZU
+            </h3>
+            <p>IQIZU is your go-to platform for fun, interactive quizzes that challenge and entertain. Discover new topics, learn, and enjoy quizzes tailored to your interests!</p>
+        </div>
+        
+        <div class="footer-links">
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About us</a></li>
+                <li><a href="Contact.html">Contact</a></li>
+                <li><a href="index.html#faq-section" class="nav-link">FAQ's</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Terms & Conditions</a></li>
+
+            </ul>
+        </div>
+        <div class="footer-socials">
+            <h3> <em> Follow Us</em></h3>
+            <div class="socials-icons">
+            <a href="https://linkedin.com"><i class="bi bi-linkedin" ></i></a>
+            <a href="https://www.instagram.com"><i class="bi bi-instagram" ></i></a>
+            <a href="https://github.com"><i class="bi bi-github" ></i></a>
+            <a href="#"><i class="bi bi-facebook"></i></a>
+            <a href="#"><i class="bi bi-twitter-x"></i></a>
+            </div>
+        </div>      
+        <div class="footer-subs">
+            <h3>Stay Updated</h3>
+            <form class=" footer-form">
+                <input type="email" placeholder="Your Email" id="email" required>
+                <button type="submit" >Subscribe</button>
+            </form>
+            <img src="img/luffy wall.png" alt="" id="luffy">
+            <img src="img/858ecce6-2cf0-4f27-a652-7334d8199629-removebg-preview.png" alt="" id="boa">
+
+
+        </div>
+       </div>
+       <div class="footer-bottom">
+        <p>&copy; 2024 IQIZU.  All rights reserved.</p>
+        <a href="#" class="back-to-top">Back to Top <span style="font-size: 18px"> &uarr; </span></a>
+    </div>
+    </footer>
+
+</main>
+
+
+
+
+
+
+        <div class="subscribe-popup">
+            <h1>Yay !!</h1>
+            <h4>Thanks for tuning in! Stay updated!.</h4>
+            <div class="close-f">
+                <a href="index.html">
+                    <i class="bi bi-x"></i>
+                </a>
+            </div>
+            <img src="img/download__2_-removebg-preview.png" alt="">
+        </div>
+    
+<script>
+
+document.querySelectorAll('.quiz-btn').forEach(button => {
+    button.addEventListener('click', (event) => {
+        const quizType = event.target.getAttribute('data-quiz');
+        
+        window.location.href = `quiz.html?quiz=${quizType}`;
+    });
+});
+
+
+</script>
+    <script src="script.js"></script>
+</body>
+</html>

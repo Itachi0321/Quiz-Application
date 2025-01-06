@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<style>
+  body{
+    background: url(img/brandon-griggs-PcAxQ_BMjnk-unsplash.jpg);
+    background-size: cover;
+  }
+
+</style>
+<body>
+    <div class="app">
+        <h1 id="quiz-head">Onepiece Quiz</h1>
+        <div class="quiz">
+            <h2 id="question">Question Goes Here</h2>
+            <img id="quiz-image" class="quiz-image" src="" alt="Flag Image" />
+            <div id="answer-buttons">
+                <button class="btn-ans">Answer2</button>
+                <button class="btn-ans">answer4</button>
+                <button class="btn-ans">Answer3</button>
+                <button class="btn-ans">Answer1</button>
+            </div>
+            <button id="next-btn-ans">Next</button>
+        </div>
+    </div>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+const quizType = urlParams.get('quiz');
+
+
+
+const quizzes = {
+            onepiece: [
+        {
+            question: "What is the name of Luffy's pirate crew?",
+            answers: [
+                { text: "Blackbeard Pirates", correct: false },
+                { text: "Straw Hat Pirates", correct: true },
+                { text: "Red-Haired Pirates", correct: false },
+                { text: "Heart Pirates", correct: false },
+            ]
+        },
+        {
+            question: "Who is the swordsman in the Straw Hat Pirates?",
+            answers: [
+                { text: "Sanji", correct: false },
+                { text: "Usopp", correct: false },
+                { text: "Franky", correct: false },
+                { text: "Zoro", correct: true },
+
+            ]
+        },
+        {
+            question: "What is the name of the sea where the story begins?",
+            answers: [
+                { text: "Grand Line", correct: false },
+                { text: "New World", correct: false },
+                { text: "North Blue", correct: false },          
+                { text: "East Blue", correct: true },
+
+            ]
+        },
+        {
+            question: "What fruit gave Luffy his powers?",
+            answers: [
+                { text: "Mera Mera no Mi", correct: false },
+                { text: "Gomu Gomu no Mi", correct: true },
+                { text: "Hito Hito no Mi", correct: false },
+                { text: "Suke Suke no Mi", correct: false },
+            ]
+        },
+        {
+            question: "What is the name of the island where the One Piece is rumored to be located?",
+            answers: [
+                { text: "Wano", correct: false },
+                { text: "Alabasta", correct: false },
+                { text: "Dressrosa", correct: false },
+                { text: "Raftel", correct: true },
+            ]
+        },
+        {
+            question: "Who is the captain of the Red-Haired Pirates?",
+            answers: [
+                { text: "Shanks", correct: true },
+                { text: "Kaido", correct: false },
+                { text: "Big Mom", correct: false },
+                { text: "Law", correct: false },
+            ]
+        },
+        {
+            question: "What is Zoro's dream?",
+            answers: [
+                { text: "To become the King of Pirates", correct: false },
+                { text: "To become the world's greatest swordsman", correct: true },
+                { text: "To explore all the seas", correct: false },
+                { text: "To find the One Piece", correct: false },
+            ]
+        },
+        {
+            question: "What is Nami’s role in the Straw Hat Pirates?",
+            answers: [
+                { text: "Cook", correct: false },
+                { text: "Doctor", correct: false },
+                { text: "Navigator", correct: true },
+                { text: "Shipwright", correct: false },
+            ]
+        },
+        {
+            question: "Which character has the nickname 'Pirate Hunter'?",
+            answers: [
+                { text: "Zoro", correct: true },
+                { text: "Luffy", correct: false },
+                { text: "Sanji", correct: false },
+                { text: "Usopp", correct: false },
+            ]
+        },
+        {
+            question: "Who is the main antagonist during the Dressrosa arc?",
+            answers: [
+                { text: "Kaido", correct: false },
+                { text: "Doflamingo", correct: true },
+                { text: "Crocodile", correct: false },
+                { text: "Enel", correct: false },
+            ]
+        },
+    ],
+
+    ben10: [
+
+        {
+            question: "What is the name of Ben's device that allows him to transform into aliens?",
+            answers: [
+                { text: "Ultimatrix", correct: false },
+                { text: "Omnitrix", correct: true },
+                { text: "Chronomatrix", correct: false },
+                { text: "Biomatrix", correct: false },
+            ]
+        },
+        {
+            question: "What is the name of Ben's cousin?",
+            answers: [
+                { text: "Julie", correct: false },
+                { text: "Gwen", correct: true },
+                { text: "Charmcaster", correct: false },
+                { text: "Kai", correct: false },
+            ]
+        },
+        {
+            question: "Which alien is Ben's first transformation?",
+            answers: [
+                { text: "Heatblast", correct: true },
+                { text: "Four Arms", correct: false },
+                { text: "Diamondhead", correct: false },
+                { text: "XLR8", correct: false },
+            ]
+        },
+        {
+            question: "Who is Ben's main enemy in the original series?",
+            answers: [
+                { text: "Kevin 11", correct: false },
+                { text: "Zombozo", correct: false },
+                { text: "Vilgax", correct: true },
+                { text: "Dr. Animo", correct: false },
+            ]
+        },
+        {
+            question: "What is Gwen's primary power source?",
+            answers: [
+                { text: "Alien Tech", correct: false },
+                { text: "Strength", correct: false },
+                { text: "Speed", correct: false },
+                { text: "Magic", correct: true },
+
+            ]
+        },
+        {
+            question: "Which alien is known for super speed?",
+            answers: [
+                { text: "XLR8", correct: true },
+                { text: "Wildmutt", correct: false },
+                { text: "Ripjaws", correct: false },
+                { text: "Cannonbolt", correct: false },
+            ]
+        },
+        {
+            question: "What is the name of Ben's grandfather?",
+            answers: [
+                { text: "Phil Tennyson", correct: false },
+                { text: "Carl Tennyson", correct: false },
+                { text: "Max Tennyson", correct: true },
+                { text: "Frank Tennyson", correct: false },
+            ]
+        },
+        {
+            question: "What is the name of the alien made entirely of diamonds?",
+            answers: [
+                { text: "Diamondhead", correct: true },
+                { text: "Chromastone", correct: false },
+                { text: "Upgrade", correct: false },
+                { text: "Echo Echo", correct: false },
+            ]
+        },
+        {
+            question: "What is Kevin Levin's power after absorbing the Omnitrix’s energy?",
+            answers: [
+                { text: "He becomes super strong.", correct: false },
+                { text: "He gains control over fire.", correct: false },
+                { text: "He becomes faster than XLR8.", correct: false },
+                { text: "He can transform into a mixture of aliens.", correct: true },
+
+            ]
+        },
+        {
+            question: "What is the name of the alien that can manipulate fire?",
+            answers: [
+                { text: "Four Arms", correct: false },
+                { text: "Heatblast", correct: true },
+                { text: "Ghostfreak", correct: false },
+                { text: "Wildvine", correct: false },
+            ]
+        },
+    ],
+
+    htmlcss: [
+
+        {
+            question: "What does HTML stand for?",
+        answers: [
+            { text: "Hyperlink Text Markup Language", correct: false },
+            { text: "Home Tool Markup Language", correct: false },
+            { text: "HyperText Machine Language", correct: false },
+            { text: "HyperText Markup Language", correct: true },
+        ]
+    },
+    {
+        question: "Which tag is used to create a hyperlink in HTML?",
+        answers: [
+            
+            { text: "&lt;link&gt;", correct: false },
+            { text: "&lt;href&gt;", correct: false },
+            { text: "&lt;a&gt;", correct: true }, 
+            { text: "&lt;hyper&gt;", correct: false },
+            
+        ]
+    },
+    {
+        question: "What is the correct HTML element for inserting a line break?",
+        answers: [
+            { text: "&lt;break&gt;", correct: false },
+            { text: "&lt;lb&gt;", correct: false },
+            { text: "&lt;line&gt;", correct: false },
+            { text: "&lt;br&gt;", correct: true },
+
+        ]
+    },
+    {
+        question: "Which CSS property is used to change the background color?",
+        answers: [
+            { text: "background-color", correct: true },
+            { text: "bgcolor", correct: false },
+            { text: "color", correct: false },
+            { text: "background", correct: false },
+        ]
+    },
+    {
+        question: "What is the correct syntax for linking an external CSS file?",
+        answers: [
+            { text: "&lt;style src='style.css'&gt;", correct: false },
+            { text: "&lt;css link='style.css'&gt;", correct: false },
+            { text: "&lt;link rel='stylesheet' href='style.css'&gt;", correct: true },
+            { text: "&lt;stylesheet&gt;style.css&lt;/stylesheet&gt;", correct: false },
+        ]
+    },
+    {
+        question: "Which property is used to change the text color in CSS?",
+        answers: [
+            { text: "text-color", correct: false },
+            { text: "font-color", correct: false },
+            { text: "text-style", correct: false },
+            { text: "color", correct: true },
+
+        ]
+    },
+    {
+        question: "What is the correct HTML for creating a text input field?",
+        answers: [
+            { text: "&lt;input type='text'&gt;", correct: true },
+            { text: "&lt;textfield&gt;", correct: false },
+            { text: "&lt;textinput&gt;", correct: false },
+            { text: "&lt;input-text&gt;", correct: false },
+        ]
+    },
+    {
+        question: "Which CSS property is used to change the font of an element?",
+        answers: [
+            { text: "font-style", correct: false },
+            { text: "font-family", correct: true },
+            { text: "font-weight", correct: false },
+            { text: "font-size", correct: false },
+        ]
+    },
+    {
+        question: "Which HTML tag is used to define an unordered list?",
+        answers: [
+            { text: "&lt;ul&gt;", correct: true },
+            { text: "&lt;ol&gt;", correct: false },
+            { text: "&lt;li&gt;", correct: false },
+            { text: "&lt;list&gt;", correct: false },
+        ]
+    },
+    {
+        question: "How do you select an element with the id 'header' in CSS?",
+        answers: [
+            { text: ".header", correct: false },
+            { text: "header", correct: false },
+            { text: "#header", correct: true },
+            { text: "*header", correct: false },
+        ]
+    },
+    ],
+
+    gk: [
+
+        {
+            question: "What is the capital of France?",
+            answers: [
+                { text: "Berlin", correct: false },
+                { text: "Madrid", correct: false },
+                { text: "Paris", correct: true },
+                { text: "Rome", correct: false },
+            ]
+        },
+        {
+            question: "Who wrote the play 'Romeo and Juliet'?",
+            answers: [
+                { text: "Charles Dickens", correct: false },
+                { text: "William Shakespeare", correct: true },
+                { text: "Jane Austen", correct: false },
+                { text: "George Orwell", correct: false },
+            ]
+        },
+        {
+            question: "What is the largest planet in our solar system?",
+            answers: [
+                { text: "Earth", correct: false },
+                { text: "Jupiter", correct: true },
+                { text: "Saturn", correct: false },
+                { text: "Mars", correct: false },
+            ]
+        },
+        {
+            question: "Who was the first President of the United States?",
+            answers: [
+                { text: "George Washington", correct: true },
+                { text: "Abraham Lincoln", correct: false },
+                { text: "Thomas Jefferson", correct: false },
+                { text: "John Adams", correct: false },
+            ]
+        },
+        {
+            question: "What is the smallest country in the world?",
+            answers: [
+                { text: "Monaco", correct: false },
+                { text: "Vatican City", correct: true },
+                { text: "San Marino", correct: false },
+                { text: "Nauru", correct: false },
+            ]
+        },
+        {
+            question: "Which element has the chemical symbol 'O'?",
+            answers: [
+                { text: "Oxygen", correct: true },
+                { text: "Osmium", correct: false },
+                { text: "Ozone", correct: false },
+                { text: "Oganesson", correct: false },
+            ]
+        },
+        {
+            question: "What is the longest river in the world?",
+            answers: [
+                { text: "Amazon", correct: false },
+                { text: "Nile", correct: true },
+                { text: "Yangtze", correct: false },
+                { text: "Mississippi", correct: false },
+            ]
+        },
+        {
+            question: "Who painted the Mona Lisa?",
+            answers: [
+                { text: "Vincent van Gogh", correct: false },
+                { text: "Pablo Picasso", correct: false },
+                { text: "Leonardo da Vinci", correct: true },
+                { text: "Claude Monet", correct: false },
+            ]
+        },
+        {
+            question: "Which animal is known as the King of the Jungle?",
+            answers: [
+                { text: "Lion", correct: true },
+                { text: "Tiger", correct: false },
+                { text: "Elephant", correct: false },
+                { text: "Bear", correct: false },
+            ]
+        },
+        {
+            question: "What is the largest ocean on Earth?",
+            answers: [
+                { text: "Atlantic Ocean", correct: false },
+                { text: "Indian Ocean", correct: false },
+                { text: "Pacific Ocean", correct: true },
+                { text: "Arctic Ocean", correct: false },
+            ]
+        },
+
+        ],
+
+        worldflags: [
+            
+
+        {
+            question: "Which country does this flag represent?",
+            image: "img/jp.png",
+            answers: [
+                { text: "China", correct: false },
+                { text: "South Korea", correct: false },
+                { text: "Japan", correct: true },
+                { text: "Vietnam", correct: false },
+            ]
+        },
+        {
+            question: "Which country does this flag represent?",
+            image: "img/us.png",
+            answers: [
+                { text: "Canada", correct: false },
+                { text: "Australia", correct: false },
+                { text: "France", correct: false },
+                { text: "United States", correct: true },
+
+            ]
+        },
+        {
+            question: "Which country does this flag represent?",
+            image: "img/israel.png", 
+            answers: [
+                { text: "Jordan", correct: false },
+                { text: "Lebanon", correct: false },
+                { text: "Israel", correct: true },
+                { text: "Egypt", correct: false },
+            ]
+        },
+        {
+            question: "Which country does this flag represent?",
+            image: "img/turkey.png",
+            answers: [
+                { text: "Turkey", correct: true },
+                { text: "Pakistan", correct: false },
+                { text: "Saudi Arabia", correct: false },
+                { text: "Iran", correct: false },
+            ]
+        },
+        {
+            question: "Which country does this flag represent?",
+            image: "img/germany.png", 
+            answers: [
+                { text: "Belgium", correct: false },
+                { text: "Netherlands", correct: false },
+                { text: "France", correct: false },
+                { text: "Germany", correct: true },
+
+            ]
+        },
+        {
+            question: "Which country does this flag represent?",
+            image: "img/denmark.png", 
+            answers: [
+                { text: "Denmark", correct: true },
+                { text: "Norway", correct: false },
+                { text: "Sweden", correct: false },
+                { text: "Finland", correct: false },
+            ]
+        },
+        {
+            question: "Which country does this flag represent?",
+            image: "img/ethipia.png", 
+            answers: [
+                { text: "Kenya", correct: false },
+                { text: "Ethiopia", correct: true },
+                { text: "Somalia", correct: false },
+                { text: "Uganda", correct: false },
+            ]
+        },
+        {
+            question: "Which country does this flag represent?",
+            image: "img/sweden.png", 
+            answers: [
+                { text: "Sweden", correct: true },
+                { text: "Norway", correct: false },
+                { text: "Finland", correct: false },
+                { text: "Denmark", correct: false },
+            ]
+        },
+        {
+            question: "Which country does this flag represent?",
+            image: "img/sk.png", 
+            answers: [
+                { text: "South Korea", correct: true },
+                { text: "North Korea", correct: false },
+                { text: "China", correct: false },
+                { text: "Japan", correct: false },
+            ]
+        },
+        {
+            question: "Which country does this flag represent?",
+            image: "img/argentina.png", 
+            answers: [
+                { text: "Brazil", correct: false },
+                { text: "Chile", correct: false },
+                { text: "Argentina", correct: true },
+                { text: "Peru", correct: false },
+            ]
+        },
+    ]
+        
+
+        };
+
+
+        
+
+const questions = quizzes[quizType] || []; 
+
+const questionElement = document.getElementById("question");
+const answerButtons = document.getElementById("answer-buttons");
+const nextButton = document.getElementById("next-btn-ans");
+const quizImage = document.getElementById("quiz-image");
+
+let currentQuestionIndex = 0;
+let score = 0;
+
+function startQuiz() {
+    currentQuestionIndex = 0;
+    score = 0;
+    nextButton.innerHTML = "Next";
+    showQuestion();
+}
+
+function showQuestion() {
+    resetState();
+    let currentQuestion = questions[currentQuestionIndex];
+    let questionNo = currentQuestionIndex + 1;
+    questionElement.innerHTML = questionNo + ". " + currentQuestion.question;
+    
+    quizImage.src = currentQuestion.image;
+
+    currentQuestion.answers.forEach(answer => {
+        const button = document.createElement("button");
+        button.innerHTML = answer.text;
+        button.classList.add("btn-ans");
+        answerButtons.appendChild(button);
+        if (answer.correct) {
+            button.dataset.correct = answer.correct;
+        }
+        button.addEventListener("click", selectAnswer);
+        
+    });
+}
+
+function resetState() {
+    nextButton.style.display = "none";
+    while (answerButtons.firstChild) {
+        answerButtons.removeChild(answerButtons.firstChild);
+    }
+}
+
+function selectAnswer(e) {
+    const selectedBtn = e.target;
+    const isCorrect = selectedBtn.dataset.correct === "true";
+    if (isCorrect) {
+        selectedBtn.classList.add("correct");
+        score++;
+    } else {
+        selectedBtn.classList.add("incorrect");
+    }
+
+    Array.from(answerButtons.children).forEach(button => {
+        if (button.dataset.correct === "true") {
+            button.classList.add("correct");
+        }
+        button.disabled = true;
+    });
+    nextButton.style.display = "block";
+}
+
+function showScore() {
+    resetState();
+    questionElement.innerHTML = `You scored ${score} out of ${questions.length}!`;
+    nextButton.innerHTML = "Play Again";
+    nextButton.style.display = "block";
+}
+
+function handleNextButton() {
+    currentQuestionIndex++;
+    if (currentQuestionIndex < questions.length) {
+        showQuestion();
+    } else {
+        showScore();
+    }
+}
+
+nextButton.addEventListener("click", () => {
+    if (currentQuestionIndex < questions.length) {
+        handleNextButton();
+    } else {
+        startQuiz();
+    }
+});
+
+startQuiz();</script>
+</body>
+
+</html>
